@@ -50,6 +50,14 @@ The application takes a Bitcoin address or a Transaction ID (TXID) as input.
     *   Displays all informational sections (Summary, Recent Transactions, Behavioral Patterns, Legend).
     *   Handles user interactions for multi-level graph tracing, resets, fullscreen mode, and data exports.
 
+## Example Case Study: Identifying a "Rapid Influx" Pattern
+
+"Follow Your Money" can help identify potentially noteworthy activity by highlighting certain behavioral patterns. The screenshot below shows the application analyzing a Bitcoin address that exhibits such a pattern:
+
+In this example, the tool has detected a "Rapid Influx from Multiple Sources," among other details. A comprehensive breakdown of what this screenshot demonstrates, including an interpretation of the summary data, the behavioral pattern, the graph, and the recent transactions list, can be found in our detailed:
+
+➡️ **[Example Analysis Walkthrough (`EXAMPLE_ANALYSIS.md`)](EXAMPLE_ANALYSIS.md)**
+
 ## Technologies Used
 
 *   **Frontend:** HTML5, CSS3, Vanilla JavaScript, Vis.js
