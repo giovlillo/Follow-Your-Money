@@ -1,6 +1,6 @@
 # Follow Your Money - Advanced Bitcoin Transaction Tracer
 
-*`![Follow Your Money - Main Interface](Follow-Your-Money/blob/main/FYM_graph.jpg)`*
+*`![Follow Your Money - Main Interface]([Follow-Your-Money/blob/main/FYM_graph.jpg](https://github.com/giovlillo/Follow-Your-Money/blob/main/FYM_graph.jpg?raw=true))`*
 
 **Follow Your Money** is a web application designed to help users trace the path of Bitcoin funds, visualize transaction flows, and identify potential behavioral patterns that might be associated with illicit activities or common scamming techniques. This tool empowers users to gain insights into how their (or other) Bitcoin funds have moved across the blockchain.
 
