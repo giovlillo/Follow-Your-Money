@@ -49,7 +49,7 @@ The graph visually represents the connections to the central address `bc1q0cnu..
 This table provides detailed information about the most recent transactions involving the address:
 
 *   **Direction:** All transactions listed show the green "up arrow" (`⬆️`), confirming they are **incoming** to the address `bc1q0cnu...`.
-*   **Timestamps & Amounts:** The list shows a cluster of transactions occurring дуже close in time (e.g., multiple on "06/18/2025, 12:15:19 AM" in the example data you provided previously for a similar address), with relatively small and similar amounts. This data directly supports the "Rapid Influx" pattern detected.
+*   **Timestamps & Amounts:** The list shows a cluster of transactions occurring most close in time (e.g., multiple on "06/18/2025, 12:15:19 AM" in the example data you provided previously for a similar address), with relatively small and similar amounts. This data directly supports the "Rapid Influx" pattern detected.
 *   **Counterparts:** These are the (simplified) source addresses from which the funds originated for each transaction. The variety here further suggests multiple distinct senders.
 *   **TXID Links:** Each TXID is a clickable link to Mempool.space, allowing for direct verification and deeper exploration of individual transactions.
 
