@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow Your Money</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Vis.js Network CSS -->
+    <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1>Follow Your Money</h1>
+        <p>Trace Bitcoin Transactions and Check Addresses</p>
+    </header>
+
+    <main>
+        <section class="input-section">
+            <label for="identifierInput">Enter Bitcoin Address or Transaction ID (TXID):</label>
+            <input type="text" id="identifierInput" placeholder="Enter address or TXID...">
+            <button id="traceButton">Trace</button>
+            <button id="resetButton" style="margin-left: 10px;">Reset</button>
+        </section>
+
+        <section class="results-section">
+            <h2>Results</h2>
+            <div id="resultsArea">
+                <div id="summaryContainer">
+                    <!-- Summary details will be loaded here -->
+                </div>
+                <div id="graphAreaWrapper">
+                    <button id="fullscreenGraphButton" title="Toggle Fullscreen Graph">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                    </button>
+                    <div id="graphContainer">
+                        <!-- Vis.js graph will be rendered here -->
+                    </div>
+                </div>
+                <div id="transactionsContainer">
+                    <!-- Recent transactions will be loaded here -->
+                </div>
+            </div>
+            <div id="exportControls" style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #ccc;">
+                <h3>Export Results</h3>
+                <button id="exportJsonButton">Export Graph Data (JSON)</button>
+                <button id="exportCsvButton">Export Transactions (CSV)</button>
+                <button id="resetGraphButton" style="margin-left: 10px;">Reset Graph View</button>
+            </div>
+            <div id="legendContainer" style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #ccc; display: none;">
+                <h4>Legend</h4>
+                <ul id="legendList">
+                    <!-- Legend items will be populated here -->
+                     <li><span class="legend-color-dot" style="background-color: #5cb85c;"></span> Wallet Address</li>
+                     <li><span class="legend-color-box" style="background-color: #f0ad4e;"></span> Transaction</li>
+                     <li><span class="legend-color-dot" style="background-color: #999999;"></span> Input Address (in TXID trace)</li>
+                     <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/></svg> Incoming Transaction (recent list)</li>
+                     <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/></svg> Outgoing Transaction (recent list)</li>
+                     <li class="legend-section-title">Behavioral Patterns Guide:</li>
+                     <li class="legend-pattern-item">
+                         <strong>High Transaction Volume:</strong>
+                         <span class="legend-pattern-description">Indicates an unusually high number of transactions in a short period.</span>
+                     </li>
+                     <li class="legend-pattern-item">
+                         <strong>Consolidation Activity:</strong>
+                         <span class="legend-pattern-description">Indicates funds may have been gathered from many sources into the address.</span>
+                     </li>
+                     <li class="legend-pattern-item">
+                         <strong>Fragmentation Activity:</strong>
+                         <span class="legend-pattern-description">Indicates funds from the address may have been split into many smaller parts to different addresses.</span>
+                     </li>
+                     <li class="legend-pattern-item">
+                         <strong>Dusting Activity:</strong>
+                         <span class="legend-pattern-description">Indicates the reception of numerous, very small (dust) amounts, sometimes used for tracking.</span>
+                     </li>
+                     <li class="legend-pattern-item">
+                        <strong>Rapid Influx from Multiple Sources:</strong>
+                        <span class="legend-pattern-description">Indicates the address received many payments from different sources in a short time.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="disclaimer">
+            <h2>Disclaimer</h2>
+            <p><strong>Important:</strong> This tool is experimental and provided for informational purposes only.</p>
+            <ul>
+                <li>Tracing transactions does not guarantee the recovery of funds.</li>
+                <li>Data from Chainabuse relies on community reports and may not be complete, accurate, or up-to-date. Always perform your own due diligence.</li>
+                <li>Identifying the real-world owner of a Bitcoin address is generally not possible with this tool alone.</li>
+                <li>**Balance Information:** The displayed balance refers only to the specific address shown and may not represent the total funds controlled by an individual or entity (wallet balance).</li>
+                <li>**Exchange Identification:** Exchange identification is based on a limited, hardcoded list and Chainabuse data; it is not guaranteed to be accurate or exhaustive.</li>
+                <li><strong>Behavioral Patterns:</strong> Any behavioral patterns identified (e.g., high transaction volume, dusting) are based on simple heuristics. These observations may generate false positives and should not be considered definitive proof of any specific activity, illicit or otherwise. Always conduct thorough due diligence.</li>
+                <li>Use this tool responsibly and ethically.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Vis.js Network JavaScript -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

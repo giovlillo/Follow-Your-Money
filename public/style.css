@@ -1,0 +1,337 @@
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0.2rem 0 0;
+    font-size: 1rem;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.input-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-section input[type="text"] {
+    width: calc(100% - 220px); /* Adjust width considering buttons */
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-section button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.input-section button:hover {
+    background-color: #4cae4c;
+}
+
+#resetButton {
+    background-color: #d9534f;
+}
+#resetButton:hover {
+    background-color: #c9302c;
+}
+
+
+/* Results Section */
+.results-section {
+    margin-top: 20px;
+}
+
+.results-section h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#resultsArea {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    gap: 20px; /* Space between summary, graph, and transactions */
+}
+
+#summaryContainer, #transactionsContainer, #graphAreaWrapper, #exportControls, #legendContainer {
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+#summaryContainer h4, #transactionsContainer h4, #exportControls h3, #legendContainer h4 {
+    margin-top: 0;
+    color: #337ab7;
+}
+
+#summaryContainer p, #transactionsContainer p {
+    margin: 0.5em 0;
+}
+.exchange {
+    font-weight: bold;
+    color: #2a6496; /* Darker blue for exchanges */
+    background-color: #e7f3fe; /* Light blue background */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+
+/* Graph Area Wrapper and Container */
+#graphAreaWrapper {
+    position: relative; /* For positioning the fullscreen button */
+    min-height: 400px; /* Ensure it has some height even if graph is small */
+}
+#graphContainer {
+    width: 100%;
+    height: 500px; /* Default height */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Fullscreen Button for Graph */
+#fullscreenGraphButton {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    z-index: 10; /* Ensure it's above the graph */
+    padding: 5px 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#fullscreenGraphButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#fullscreenGraphButton svg {
+    display: block; /* Helps with alignment if needed */
+}
+
+/* Styles for graph in fullscreen mode */
+#graphContainer:fullscreen,
+#graphContainer:-webkit-full-screen,
+#graphContainer:-moz-full-screen,
+#graphContainer:-ms-fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    border: none; /* Optional: remove border in fullscreen */
+}
+
+
+/* Transactions Table */
+#transactionsContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#transactionsContainer th, #transactionsContainer td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+#transactionsContainer th {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+#transactionsContainer tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.tx-in-row { /* Optional: if you want to color rows based on direction */
+    /* background-color: #e6ffed; */
+}
+.tx-out-row {
+    /* background-color: #ffe6e6; */
+}
+#transactionsContainer svg {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+/* Export and Legend Controls */
+#exportControls button, #resetGraphButton {
+    margin-right: 10px;
+    margin-bottom: 10px; /* For better spacing if they wrap */
+    padding: 8px 12px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#exportControls button:hover, #resetGraphButton:hover {
+    background-color: #286090;
+}
+#resetGraphButton {
+    background-color: #f0ad4e;
+}
+#resetGraphButton:hover {
+    background-color: #ec971f;
+}
+
+#legendList {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+#legendList li {
+    margin-bottom: 5px;
+    display: flex; /* Align icon and text */
+    align-items: center; /* Vertically center icon and text */
+}
+.legend-color-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+.legend-color-box {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+#legendList svg { /* For SVG icons in legend */
+    margin-right: 8px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Styles for Behavioral Patterns Legend */
+.legend-section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    color: #333;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc; /* Optional separator */
+    margin-top: 15px !important; /* Add more top margin */
+    margin-bottom: 10px !important; /* Space after the guide title */
+    display: block; /* Ensure it takes full width */
+}
+
+.legend-pattern-item {
+    display: block; /* Each pattern on a new line */
+    margin-bottom: 8px; /* Space between pattern items */
+    line-height: 1.4;   /* Improves readability of multi-line text */
+    align-items: flex-start; /* Align items to the start for multi-line descriptions */
+}
+
+.legend-pattern-item strong {
+    display: block; /* Pattern title on its own line */
+    margin-bottom: 2px; /* Small space between title and description */
+    color: #444; /* Slightly darker for emphasis */
+}
+
+.legend-pattern-description {
+    display: block;     /* Description on a new line, indented */
+    padding-left: 15px; /* Indentation for the description */
+    font-size: 0.9em;   /* Make the description slightly smaller */
+    color: #555;       /* Softer color for the description */
+}
+
+
+/* Disclaimer Section */
+.disclaimer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #fff3cd; /* Light yellow background */
+    border: 1px solid #ffeeba; /* Yellow border */
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.disclaimer h2 {
+    margin-top: 0;
+    color: #856404; /* Dark yellow text */
+}
+.disclaimer ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+.disclaimer li {
+    margin-bottom: 5px;
+}
+
+/* Error Message Styling */
+.error {
+    color: #a94442; /* Bootstrap's text-danger color */
+    background-color: #f2dede; /* Bootstrap's bg-danger color */
+    border: 1px solid #ebccd1; /* Bootstrap's border-danger color */
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-section input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .input-section button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    #resultsArea {
+        flex-direction: column;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
