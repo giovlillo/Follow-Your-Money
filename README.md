@@ -81,13 +81,6 @@ To run this application locally:
     # or
     # yarn install
     ```
-4.  **Environment Variables (Optional):**
-    *   While the application currently does not strictly require API keys for its core functionality (Chainabuse check is a manual link), a `.env.example` file is provided. If you plan to integrate services requiring API keys in the future, copy it to `.env`:
-        ```bash
-        cp .env.example .env
-        ```
-    *   Then, add your keys to the `.env` file.
-    *   **Important:** Ensure `.env` is in your `.gitignore` file.
 4.  **Run the Server:**
     ```bash
     node server.js
