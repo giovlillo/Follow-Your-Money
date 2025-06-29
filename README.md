@@ -80,7 +80,7 @@ To run this application locally:
     node server.js
     ```
 5.  **Access the Application:**
-    Open your web browser and navigate to `http://localhost:3000` (or the port configured in `server.js`).
+    Open your web browser and navigate to `http://localhost:3000`
 
 ## Usage Guide
 
