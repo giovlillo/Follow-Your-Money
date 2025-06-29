@@ -7,15 +7,11 @@
 ## Core Strengths & Features
 
 *   📊 **Interactive Graph Visualization:** Dynamically renders the flow of Bitcoin between addresses (wallets) and transactions using Vis.js. This provides a clear visual map of fund movements.
-    *   **(Placeholder: Immagine del Grafico in Azione - magari con un tracciamento multi-livello)**
-        *`![Interactive Graph](path/to/your/graph_screenshot.png)`*
 *   🔍 **Multi-Level Tracing:** Users can click on any node (address or transaction) in the graph to expand the trace, fetching and displaying connected transactions and addresses further down the chain.
 *   💡 **Behavioral Pattern Detection (Heuristic):** The application analyzes transaction history for the searched address to identify simple, common patterns that *could* be indicative of certain activities. These include:
     *   **Rapid Influx from Multiple Sources:** Detects if an address quickly receives numerous small payments from many different sender addresses.
     *   **Consolidation/Fragmentation Activity:** Identifies instances where funds are either gathered from many inputs into fewer outputs, or split from few inputs into many outputs.
     *   **Dusting Activity:** Flags the reception of multiple, extremely small "dust" amounts.
-    *   **(Placeholder: Immagine della Sezione "Behavioral Patterns Observed")**
-        *`![Behavioral Patterns Section](path/to/your/patterns_screenshot.png)`*
     *   *A detailed explanation of these patterns and their potential implications can be found in `PATTERNS_AND_SCAMS.md`.*
 *   📋 **Address Summary:** For a searched address, the app displays:
     *   Confirmed Balance
