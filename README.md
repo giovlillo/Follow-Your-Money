@@ -16,7 +16,7 @@
     *   **Dusting Activity:** Flags the reception of multiple, extremely small "dust" amounts.
     *   **(Placeholder: Immagine della Sezione "Behavioral Patterns Observed")**
         *`![Behavioral Patterns Section](path/to/your/patterns_screenshot.png)`*
-    *   *A detailed explanation of these patterns and their potential implications can be found in `PATTERNS_AND_SCAMS.md`.* (Link al file separato)
+    *   *A detailed explanation of these patterns and their potential implications can be found in `PATTERNS_AND_SCAMS.md`.*
 *   📋 **Address Summary:** For a searched address, the app displays:
     *   Confirmed Balance
     *   Total Received
@@ -72,7 +72,7 @@ To run this application locally:
     *   Node.js (v14.x or later recommended) and npm (or yarn).
 2.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/follow-your-money.git
+    git clone https://github.com/giovlillo/Follow-Your-Money.git
     cd follow-your-money
     ```
 3.  **Install Dependencies:**
