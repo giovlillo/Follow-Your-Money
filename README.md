@@ -23,8 +23,6 @@
     *   Amount
     *   Counterparty addresses (simplified)
     *   A direct link to the transaction on Mempool.space.
-    *   **(Placeholder: Immagine della Tabella "Recent Transactions")**
-        *`![Recent Transactions List](path/to/your/transactions_list_screenshot.png)`*
 *   🛠️ **User Controls & Export:**
     *   **Reset Graph View:** Reverts the graph to its initial state for the current search.
     *   **Reset All:** Clears all results and prepares for a new search.
